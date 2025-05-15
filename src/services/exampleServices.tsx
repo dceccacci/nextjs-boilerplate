@@ -7,20 +7,13 @@ export async function fetchSomeExamples(limit: number){
     // // const r = await fetch(url)
     // // const data = await r.json()
     // // const results = data["results"]
-    const results = [
-        {
-            "url": "https://exampleapi.co/api/v2/1/"
-        },
-        {
-            "url": "https://pokeapi.co/api/v2/2/"
-        },
-        {
-            "url": "https://pokeapi.co/api/v2/3/"
-        },
-        {
-            "url": "https://pokeapi.co/api/v2/4/"
-        },
-    ] // example return from api
+    const results: {[url:string]:string}[] = [];
+    for (let i = 0; i < limit; i++){
+        results.push({
+            "url": `https://exampleapi.co/api/v2/${i+1}}/`
+        });
+    }
+    // example return from api
     const examples: ExampleType[] = [];
 
     for (let i = 0; i < results.length; i++){
