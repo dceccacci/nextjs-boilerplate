@@ -21,7 +21,6 @@ export default function ExampleTable() {
             {headers.map((header, i) =>
               <TableCell key={i}>{header}</TableCell>
             )}
-
           </TableRow>
         </TableHead>
         <TableBody>
@@ -30,6 +29,15 @@ export default function ExampleTable() {
               <TableCell>{d.id}</TableCell>
               <TableCell sx={{ textTransform: "capitalize" }}>{d.name}</TableCell>
               {/* <TableCell><img src={d.imgUrl} style={{ width: 50 }} /></TableCell> */}
+              <TableCell>{d.imgUrl}</TableCell>
+              <TableCell>{d.arbitrary}</TableCell>
+              <TableCell>{d.arbitraryArray.join(", ")}</TableCell>
+              <TableCell>
+                {/* got help from copilot to remind me how to map an object */}
+                {Object.entries(d.arbitraryObject).map(([key, value]) => (
+                  <div key={key}>{key}: {String(value)}</div>
+                ))}
+              </TableCell>
             </TableRow>
           )}
         </TableBody>
