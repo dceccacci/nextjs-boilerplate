@@ -4,15 +4,14 @@ import { useExampleProvider } from "../context/exampleContext";
 
 
 export default function ExampleTable() {
-  const { pokemon } = useExampleProvider();
+  const { examples } = useExampleProvider();
   const headers = [
     "ID",
     "Name",
-    "Image",
-    "Height",
-    "Weight",
-    "Abilities",
-    "Types"
+    "ImageURL",
+    "arbitrary",
+    "Array",
+    "Object"
   ]
   return (
     <TableContainer>
@@ -26,15 +25,11 @@ export default function ExampleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {pokemon.map((d: Pokemon, i) =>
+          {examples.map((d: ExampleType, i) =>
             <TableRow key={i}>
               <TableCell>{d.id}</TableCell>
               <TableCell sx={{ textTransform: "capitalize" }}>{d.name}</TableCell>
-              <TableCell><img src={d.imgUrl} style={{ width: 50 }} /></TableCell>
-              <TableCell>{d.height / 10}m</TableCell>
-              <TableCell>{d.weight / 10}kg</TableCell>
-              <TableCell sx={{ textTransform: "capitalize" }}>{d.abilities.join(", ")}</TableCell>
-              <TableCell sx={{ textTransform: "capitalize" }}>{d.types.join(", ")}</TableCell>
+              {/* <TableCell><img src={d.imgUrl} style={{ width: 50 }} /></TableCell> */}
             </TableRow>
           )}
         </TableBody>

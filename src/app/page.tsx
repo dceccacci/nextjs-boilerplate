@@ -1,3 +1,4 @@
+'use client';
 import { Box } from '@mui/material';
 
 import ExampleSelect from '@/app/components/exampleSelect';
@@ -10,7 +11,7 @@ export default function Home() {
   return (
     <Box>
       <ExampleSelect/>
-      {/* <ExampleTable/> */}
+      <ExampleTable/>
     </Box>
   );
 }
